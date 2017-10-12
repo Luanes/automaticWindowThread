@@ -7,7 +7,7 @@ class Brain {
   public:
     Brain();
     virtual ~Brain();
-    int test();
+    void test();
 
   private:
     Sensor sensor;  

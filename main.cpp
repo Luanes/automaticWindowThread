@@ -10,18 +10,14 @@ Para executar:
 $ ./janela
 
 */
-#include <iostream>
+
 #include "Brain.h"
 
 
 int main()
 {
-	std::cout << "Olá!" << std::endl;
 	Brain brain;
-	if (brain.test() == 1)
-	  std::cout << "Janela Aberta!" << std::endl;
-	else
-	  std::cout << "Janela Fechada!" << std::endl;	
-	return 0;
+	brain.test();
+	return 0; 
 
 }
