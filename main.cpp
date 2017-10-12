@@ -4,7 +4,7 @@ Karla e Luan
 2017.2
 
 Para compilar:
-$ g++ -O3 -o janela *.cpp -Wall -std=c++14 -I *.h -l wiringPi
+$ g++ -O3 -o janela *.cpp -Wall -std=c++14 *.h -l wiringPi
 
 Para executar:
 $ ./janela

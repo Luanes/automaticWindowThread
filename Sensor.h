@@ -11,8 +11,6 @@ class Sensor {
     void openWindow();
     void closeWindow();
     bool isWindowOpen();
-
-    void setConditionstoSimulate();
     
   private:
 
