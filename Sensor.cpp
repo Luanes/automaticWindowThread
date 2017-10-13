@@ -12,7 +12,7 @@ Sensor::Sensor(){
  	pinMode (LED, OUTPUT);
 	pinMode (RAIN, INPUT);
 	// não é preciso iniciar o DHT11 aqui, pois é inicializado toda vez que chamar getTemperature();
-
+	pinMode (LDR, INPUT);
 }
 
 Sensor::~Sensor() {}
@@ -82,10 +82,16 @@ int Sensor::getTemperature(){
 	}
 
     if ( (j >= 40) &&
-         (dht11_dat[4] == (dht11_dat[0] + dht11_dat[1] + dht11_dat[2] + dht11_dat[3]) ) )
+         (dht11_dat[4] == (dht11_dat[0] + dht11_dat[1] + dht11_dat[2] + dht11_dat[3]))) 
 	return dht11_dat[2];
 
     delay(50);
   }
   return -1; // ERROR!!
+}
+
+bool Sensor::isDay(){
+  if(digitalRead(LDR))
+	return true;
+  return false;
 }

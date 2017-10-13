@@ -13,6 +13,7 @@ class Sensor {
     bool isWindowOpen();
     bool isRaining();
     int getTemperature();
+    bool isDay();
     
   private:
 

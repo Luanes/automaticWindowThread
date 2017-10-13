@@ -23,6 +23,12 @@ void Brain::test(){
 	  else
 	    std::cout << "Not Raining!" << std::endl;
 	  
-	  std::cout << "Temperature = " << sensor.getTemperature() << "C;" << std::endl;
+	  //std::cout << "Temperature = " << sensor.getTemperature() << "C;" << std::endl;
+	
+	  if (sensor.isDay())
+	    std::cout << "It's Day!" << std::endl;
+	  else
+	    std::cout << "It's Night!" << std::endl;
+
 	}	
 }
