@@ -1,0 +1,54 @@
+Iniciando iteração 1
+Não está Chuvendo!!
+Está Dia!!
+ Temperatura: 437918234
+Está manual!!
+Proxima iteração 2
+
+Iniciando iteração 2
+Não está Chuvendo!!
+Está Dia!!
+ Temperatura: 437918234
+Está manual!!
+Proxima iteração 3
+
+Iniciando iteração 3
+Está Chuvendo!!
+Está Dia!!
+ Temperatura: 437918234
+Está manual!!
+Proxima iteração 4
+
+Iniciando iteração 4
+Está Chuvendo!!
+Está Dia!!
+ Temperatura: 437918234
+Está manual!!
+Proxima iteração 5
+
+Iniciando iteração 5
+Não está Chuvendo!!
+Está Noite!!
+ Temperatura: 437918234
+Está manual!!
+Proxima iteração 6
+
+Iniciando iteração 6
+Não está Chuvendo!!
+Está Noite!!
+ Temperatura: 437918234
+Está manual!!
+Proxima iteração 7
+
+Iniciando iteração 7
+Está Chuvendo!!
+Está Noite!!
+ Temperatura: 437918234
+Está manual!!
+Proxima iteração 8
+
+Iniciando iteração 8
+Está Chuvendo!!
+Está Noite!!
+ Temperatura: 437918234
+Está manual!!

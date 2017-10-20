@@ -2,15 +2,29 @@
 #define BRAIN_H
 
 #include "Sensor.h"
+#include "Configuration.h"
 
 class Brain {
   public:
     Brain();
     virtual ~Brain();
-    void test();
+    void check();
+    void update();
+    void act();
+    void setConfiguration(int tempMax, int tempMin, bool autDay, bool autNight, bool openW);
 
   private:
     Sensor sensor;  
+    Configuration config;
+
+    bool isAutomatic();
+
+    bool rain;
+    bool day;
+    int temperatureNow;
+    int temperatureMinimum;
+    int temperatureMaximum;
+    bool automaticOn;
 
 };
 #endif /* BRAIN_H */

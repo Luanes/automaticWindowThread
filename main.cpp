@@ -12,12 +12,23 @@ $ ./janela
 */
 
 #include "Brain.h"
-
+#include <wiringPi.h>
+#include <iostream>
 
 int main()
 {
 	Brain brain;
-	brain.test();
+	int count = 1;
+	//int tempMax, int tempMin, bool autDay, bool autNight, bool openW
+	brain.setConfiguration(24, 17, false, true, false);
+	while (count < 9){
+		std::cout << "Iniciando iteração " << count <<std::endl;
+		brain.check();
+		count++;
+		std::cout << std::endl << "Proxima iteração " << count << std::endl;
+		delay(5000);
+		
+	}
 	return 0; 
 
 }
