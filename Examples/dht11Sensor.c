@@ -1,6 +1,6 @@
 // http://www.circuitbasics.com/how-to-set-up-the-dht11-humidity-sensor-on-the-raspberry-pi/
 
-// To compile: gcc -o dht11Sensor deht11Sensor.c -l wiringPi
+// To compile: gcc -o dht11Sensor dht11Sensor.c -l wiringPi
 #include <wiringPi.h>
 #include <stdio.h>
 #include <stdlib.h>

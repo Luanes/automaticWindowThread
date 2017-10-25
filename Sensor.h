@@ -16,6 +16,7 @@ class Sensor {
     bool isDay();
     
   private:
-
+   int aux_getTemperature();
+   
 };
 #endif /* SENSOR_H */

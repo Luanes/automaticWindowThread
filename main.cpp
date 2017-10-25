@@ -20,7 +20,7 @@ int main()
 	Brain brain;
 	int count = 1;
 	//int tempMax, int tempMin, bool autDay, bool autNight, bool openW
-	brain.setConfiguration(24, 17, false, true, false);
+	brain.setConfiguration(22, 17, true, true, false);
 	while (count < 9){
 		std::cout << "Iniciando iteração " << count <<std::endl;
 		brain.check();
