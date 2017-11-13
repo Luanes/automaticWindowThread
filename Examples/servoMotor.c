@@ -14,11 +14,17 @@ int main (void)
   pwmSetClock(192);
   pwmSetRange(2000);
 
-  for (int x=50; x<250; x++)
-  {
-    printf ("x = %d\n", x) ;
-    digitalWrite (SVM, x);
-    delay (10);
+  while(true){
+    for (int x = 50; x<=250; x++){
+      pwmWrite (SVM, x);
+      delay (100);
+    }
+    for (int x = 250; x>=50; x--){
+      pwmWrite (SVM, x);
+      delay (100);
+    }
+
   }
+  
   return 0 ;
 }
