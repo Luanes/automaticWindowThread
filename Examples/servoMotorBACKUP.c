@@ -13,8 +13,6 @@ int main (void)
   pwmSetMode(PWM_MODE_MS);
   pwmSetClock(192);
   pwmSetRange(2000);
-  
-  pwmWrite (SVM, 300);
 
   /*while(true){
     for (int x = 50; x<=250; x++){

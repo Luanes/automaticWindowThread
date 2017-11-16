@@ -3,7 +3,67 @@
 
 Configuration::Configuration(){
 	tempMax = 200;
-	tempMin = -1; 
+	tempMin = -1;
+	getConfiguration();
+}
+
+void Configuration::getConfiguration(){
+	std::string teste;
+	teste = connect.retrieve();
+
+	std::string minimumTemperature;
+ 	minimumTemperature.push_back(teste.at(41));
+	minimumTemperature.push_back(teste.at(42));
+
+	std::cout << minimumTemperature << std::endl;
+	
+	std::string maximumTemperature;
+	maximumTemperature.push_back(teste.at(65));
+	maximumTemperature.push_back(teste.at(66));
+
+	std::cout << maximumTemperature << std::endl;
+
+	std::string autoDay;
+	autoDay.push_back(teste.at(82));
+	autoDay.push_back(teste.at(83));
+	autoDay.push_back(teste.at(84));
+	autoDay.push_back(teste.at(85));
+	autoDay.push_back(teste.at(86));
+
+	std::cout << autoDay << std::endl;
+
+	std::string autoNight;
+	autoNight.push_back(teste.at(104));
+	autoNight.push_back(teste.at(105));
+	autoNight.push_back(teste.at(106));
+	autoNight.push_back(teste.at(107));
+	autoNight.push_back(teste.at(108));
+
+	std::cout << autoNight << std::endl;
+        
+	std::string::size_type sz;
+
+	int tempMine = std:: stoi(minimumTemperature, &sz);
+	setMinTemp(tempMine);
+
+	int tempMaxa = std:: stoi(maximumTemperature, &sz);
+	setMaxTemp(tempMaxa);
+
+	bool automaticD;
+	if(autoDay == "false"){
+	automaticD = false;
+	} else {
+	automaticD = true;
+	}
+	setAutomaticDay(automaticD);
+
+	bool automaticN;
+	if(autoNight == "false"){
+	automaticN = false;
+	} else {
+	automaticN = true;
+	}
+	setAutomaticNight(automaticN);
 }
 
 Configuration::~Configuration() {}

@@ -6,12 +6,7 @@ Brain::Brain(){}
 
 Brain::~Brain() {}
 
-void Brain::setConfiguration(int tempMax, int tempMin, bool autDay, bool autNight, bool openW){
-
-	config.setMaxTemp(tempMax);
-	config.setMinTemp(tempMin);
-	config.setAutomaticDay(autDay);
-	config.setAutomaticNight(autNight);
+void Brain::setConfiguration(bool openW){
 
 	if (openW){
 	   sensor.openWindow();
@@ -22,6 +17,7 @@ void Brain::setConfiguration(int tempMax, int tempMin, bool autDay, bool autNigh
 
 void Brain::check(){
 
+	config.getConfiguration();
 	update();
 	act();
 }

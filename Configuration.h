@@ -1,11 +1,14 @@
 #ifndef CONFIGURATION_H
 #define CONFIGURATION_H
 
+#include "Connection.h"
+
 class Configuration {
   public:
     Configuration();
     virtual ~Configuration();
 
+	void getConfiguration();
 	int getMaxTemp();
 	void setMaxTemp(int temp);
 	int getMinTemp();
@@ -16,6 +19,7 @@ class Configuration {
 	void setAutomaticNight(bool aut);
 
   private:
+	Connection connect;
 	int tempMax;
 	int tempMin;
 	bool isAutDay;

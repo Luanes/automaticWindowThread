@@ -11,7 +11,7 @@ class Brain {
     void check();
     void update();
     void act();
-    void setConfiguration(int tempMax, int tempMin, bool autDay, bool autNight, bool openW);
+    void setConfiguration(bool openW);
 
   private:
     Sensor sensor;  
