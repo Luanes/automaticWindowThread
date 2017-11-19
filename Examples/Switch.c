@@ -1,5 +1,5 @@
 /*
-TO compile:  gcc -o rainSensor rainSensor.c -l wiringPi
+TO compile:  gcc -o switch Switch.c -l wiringPi
 
 */
 
@@ -7,7 +7,7 @@ TO compile:  gcc -o rainSensor rainSensor.c -l wiringPi
 #include <wiringPi.h>
 #include <math.h>
 
-#define		RAIN    23
+#define		Switch    27
 
 void Print(int x)
 {
@@ -15,12 +15,12 @@ void Print(int x)
 	{
 		case 1:
 			printf("\n***************\n"  );
-			printf(  "* Not Raining *\n"  );
+			printf(  "* 1 *\n"  );
 			printf(  "***************\n\n");
 		break;
 		case 0:
 			printf("\n*************\n"  );
-			printf(  "* Raining!! *\n"  );
+			printf(  "* 0 *\n"  );
 			printf(  "*************\n\n");
 		break;
 		default:
@@ -40,14 +40,17 @@ int main()
 		return 1;
 	}
 
-	pinMode(RAIN, INPUT);
+	pinMode(Switch, OUTPUT);
+	digitalWrite( Switch, HIGH );
+	//delay( 18 );
+	//pinMode(Switch, INPUT);
 
-	status = 0;
+	status = 5;
 	while(1) // loop forever
 	{
 		
-		tmp = digitalRead(RAIN);
-
+		tmp = digitalRead(Switch);
+		printf("tmp = %d\n", tmp);
 		if (tmp != status)
 		{
 			printf("Digital Signal: %d\n", tmp);

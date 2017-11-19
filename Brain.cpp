@@ -25,21 +25,24 @@ void Brain::check(){
 void Brain::update(){
 
 	rain = sensor.isRaining();
-	day = sensor.isDay();
-	temperatureNow = sensor.getTemperature();
-	automaticOn = isAutomatic();
-
 	if (rain)
-		std::cout << "Está Chuvendo!!" << std::endl;
+		std::cout << "It's Raining!!" << std::endl;
 	else
-		std::cout << "Não está Chuvendo!!" << std::endl;
-	if (day)
-		std::cout << "Está Dia!!" << std::endl;
-	else
-		std::cout << "Está Noite!!" << std::endl;
+		std::cout << "It's NOT Raining!!!!" << std::endl;
 
-	std::cout << " Temperatura: " << temperatureNow << std::endl;
+
+	day = sensor.isDay();
+	if (day)
+		std::cout << "It's Day!!" << std::endl;
+	else
+		std::cout << "It's Night!!" << std::endl;
+
+
+	std::cout << "Getting Temperature..." << std::endl;
+	temperatureNow = sensor.getTemperature();
+	std::cout << "Temperature: " << temperatureNow << std::endl;
 	
+	automaticOn = isAutomatic();
 }
 
 void Brain::act(){
@@ -53,7 +56,7 @@ void Brain::act(){
 			    std::cout << "Keep Open!" << std::endl;
 			}
 			
-		}else{				//Window is closed.
+		}else if(sensor.isWindowClose()){				//Window is closed.
 			if(config.getMaxTemp() < temperatureNow && !rain){
 			sensor.openWindow();
 			std::cout << "Open the window!" << std::endl;

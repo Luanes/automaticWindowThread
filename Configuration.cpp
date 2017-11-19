@@ -15,13 +15,13 @@ void Configuration::getConfiguration(){
  	minimumTemperature.push_back(teste.at(41));
 	minimumTemperature.push_back(teste.at(42));
 
-	std::cout << minimumTemperature << std::endl;
+	std::cout << "Minimum Temperature: " << minimumTemperature << std::endl;
 	
 	std::string maximumTemperature;
 	maximumTemperature.push_back(teste.at(65));
 	maximumTemperature.push_back(teste.at(66));
 
-	std::cout << maximumTemperature << std::endl;
+	std::cout << "Maximum Temperature: " << maximumTemperature << std::endl;
 
 	std::string autoDay;
 	autoDay.push_back(teste.at(82));
@@ -30,7 +30,7 @@ void Configuration::getConfiguration(){
 	autoDay.push_back(teste.at(85));
 	autoDay.push_back(teste.at(86));
 
-	std::cout << autoDay << std::endl;
+	std::cout << "Automatic at Day: " << autoDay << std::endl;
 
 	std::string autoNight;
 	autoNight.push_back(teste.at(104));
@@ -39,7 +39,7 @@ void Configuration::getConfiguration(){
 	autoNight.push_back(teste.at(107));
 	autoNight.push_back(teste.at(108));
 
-	std::cout << autoNight << std::endl;
+	std::cout << "Automatic at Night: " << autoNight << std::endl;
         
 	std::string::size_type sz;
 

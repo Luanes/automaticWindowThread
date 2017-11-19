@@ -2,6 +2,7 @@
 #include <wiringPi.h>
 
 // To compile: gcc -o servoMotor servoMotor.c -l wiringPi
+// Important!!! To execute: sudo ./servoMotor
 
 
 #define	SVM 18
@@ -14,19 +15,12 @@ int main (void)
   pwmSetClock(192);
   pwmSetRange(2000);
   
-  pwmWrite (SVM, 300);
 
-  /*while(true){
-    for (int x = 50; x<=250; x++){
+    for (int x = 0; x<=180; x++){
+      printf("%d\n", x);
       pwmWrite (SVM, x);
-      delay (100);
+      delay (2000);
     }
-    for (int x = 250; x>=50; x--){
-      pwmWrite (SVM, x);
-      delay (100);
-    }
-
-  }*/
   
   return 0 ;
 }

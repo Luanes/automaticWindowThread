@@ -11,6 +11,7 @@ class Sensor {
     void openWindow();
     void closeWindow();
     bool isWindowOpen();
+    bool isWindowClose();
     bool isRaining();
     int getTemperature();
     bool isDay();

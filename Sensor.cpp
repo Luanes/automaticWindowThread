@@ -2,10 +2,14 @@
 
 #include <iostream>
 
-#define	LED   17
+//#define	LED   17
+
+#define	SVM 18
 #define RAIN  23
 #define DHTPIN 24
 #define LDR   25
+#define switchOPEN   27
+#define switchCLOSE   22
 
 #define MAXTIMINGS 85
 
@@ -13,28 +17,58 @@ int dht11_dat[5] = { 0, 0, 0, 0, 0 };
 
 Sensor::Sensor(){
 	wiringPiSetupGpio();
- 	pinMode (LED, OUTPUT);
+ 	//pinMode (LED, OUTPUT);
+        pinMode (SVM, PWM_OUTPUT);
+	pwmSetMode(PWM_MODE_MS);
+	pwmSetClock(192);
+	pwmSetRange(2000);
 	pinMode (RAIN, INPUT);
 	// não é preciso iniciar o DHT11 aqui, pois é inicializado toda vez que chamar getTemperature();
 	pinMode (LDR, INPUT);
+	pinMode (switchOPEN, OUTPUT);
+	digitalWrite( switchOPEN, HIGH );
+	pinMode (switchCLOSE, OUTPUT);
+	digitalWrite( switchCLOSE, HIGH );
 }
 
 Sensor::~Sensor() {}
 
 void Sensor::openWindow(){
-  digitalWrite (LED, HIGH);
-  delay (500);
+  
+  // WHen used a LED to represent the window
+  //digitalWrite (LED, HIGH);
+  
+  // horario: 1-150
+  pwmWrite (SVM, 120);
+  while(!isWindowOpen()){
+    delay (400);
+  }
+  pwmWrite (SVM, 0); // stop servo motor
 }
 
 void Sensor::closeWindow(){
-  digitalWrite (LED, LOW);
-  delay (500);
+
+  // WHen used a LED to represent the window
+  // digitalWrite (LED, LOW);
+  
+  // anti-horario: 158 - 180
+  pwmWrite (SVM, 165);
+  while(!isWindowClose()){
+    delay (400);
+  }
+  pwmWrite (SVM, 0); // stop servo motor
 }
 
 bool Sensor::isWindowOpen(){
-  if(digitalRead(LED))
+  if(digitalRead(switchOPEN))
 	return true;
-  return false;
+  return false; // close or closing or opening
+}
+
+bool Sensor::isWindowClose(){
+  if(digitalRead(switchCLOSE))
+	return true;
+  return false; // open or closing or opening
 }
 
 bool Sensor::isRaining(){
