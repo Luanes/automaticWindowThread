@@ -8,6 +8,14 @@ Brain::Brain(){
 
 Brain::~Brain() {}
 
+void Brain::checkRain(){
+	while(true){
+	brain.check();
+	delay(5000);
+	}
+}
+}
+
 void Brain::setConfiguration(bool openW){
 
 	if (openW){

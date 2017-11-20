@@ -16,17 +16,12 @@ $ ./janela
 #include <iostream>
 #include <thread>
 
-void checkRain(Brain brain){
-	while(true){
-	brain.check();
-	delay(5000);
-}
-}
+
 int main()
 {
 	Brain brain;
 	int count = 1;
-	std::thread(checkRain, brain);
+	std::thread(brain.checkRain, brain);
 	while (count < 100){
 		std::cout << std::endl  << std::endl << "Beggining Iteration..." << count << std::endl;
 		brain.check();

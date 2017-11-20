@@ -13,6 +13,7 @@ class Brain {
     void update();
     void act();
     void setConfiguration(bool openW);
+    void checkRain(Brain brain);
 
   private:
     Sensor sensor;  
