@@ -18,9 +18,7 @@ $ ./janela
 void checkRainStatus(Brain brain){
 	
 	while(true){
-	if(brain.checkRain()){
 	brain.check();
-		}
 	delay(6000);
 	}
 
@@ -30,7 +28,7 @@ int main()
 {
 	Brain brain;
 	int count = 1;
-	std::thread(brain.checkRainStatus, brain);
+	std::thread(checkRainStatus, brain);
 	while (count < 100){
 		std::cout << std::endl  << std::endl << "Beggining Iteration..." << count << std::endl;
 		brain.check();
