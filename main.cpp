@@ -15,18 +15,27 @@ $ ./janela
 #include <wiringPi.h>
 #include <iostream>
 #include <thread>
+void checkRainStatus(Brain brain){
+	
+	while(true){
+	if(brain.checkRain()){
+	brain.check();
+		}
+	delay(6000);
+	}
 
+}
 
 int main()
 {
 	Brain brain;
 	int count = 1;
-	std::thread(brain.checkRain, brain);
+	std::thread(brain.checkRainStatus, brain);
 	while (count < 100){
 		std::cout << std::endl  << std::endl << "Beggining Iteration..." << count << std::endl;
 		brain.check();
 		count++;
-		delay(5000);
+		
 		
 	}
 	return 0; 

@@ -8,11 +8,8 @@ Brain::Brain(){
 
 Brain::~Brain() {}
 
-void Brain::checkRain(){
-	while(true){
-	brain.check();
-	delay(5000);
-	}
+bool Brain::checkRain(){
+	return sensor.isRaining();
 }
 }
 
