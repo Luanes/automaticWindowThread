@@ -4,6 +4,7 @@
 #include "Sensor.h"
 #include "Configuration.h"
 
+
 class Brain {
   public:
     Brain();
@@ -14,6 +15,7 @@ class Brain {
     void setConfiguration(bool openW);
 
   private:
+    void checkRain();
     Sensor sensor;  
     Configuration config;
 

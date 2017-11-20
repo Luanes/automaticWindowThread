@@ -1,10 +1,24 @@
 #include <iostream>
 
 #include "Brain.h"
+#include <thread>
 
-Brain::Brain(){}
+Brain::Brain(){
+	std::thread watchRain(checkRain);
+}
 
 Brain::~Brain() {}
+
+void Brain::checkRain(){
+	
+	rain = sensor.isRaining();
+	if(rain){
+	update();
+	act();
+	sleep(60000);
+	}
+	
+}
 
 void Brain::setConfiguration(bool openW){
 
