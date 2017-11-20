@@ -13,9 +13,9 @@ class Brain {
     void update();
     void act();
     void setConfiguration(bool openW);
+    bool checkRain();
 
   private:
-    void checkRain();
     Sensor sensor;  
     Configuration config;
 

@@ -4,7 +4,7 @@ Karla e Luan
 2017.2
 
 Para compilar:
-$ g++ -O3 -o janela *.cpp -Wall -std=c++14 *.h -l wiringPi -l curl
+$ g++ -O3 -o janela *.cpp -Wall -std=c++14 *.h -l wiringPi -l curl -pthread
 
 Para executar:
 $ ./janela
@@ -13,19 +13,24 @@ $ ./janela
 
 #include "Brain.h"
 #include <wiringPi.h>
+#include <thread>
 #include <iostream>
 
+void checkRainStatus(Brain brain){
+	while(true){
+	brain.check;
+	delay(6000);
+	}
+}
 int main()
 {
 	Brain brain;
 	int count = 1;
-	//int tempMax, int tempMin, bool autDay, bool autNight, bool openW
-	//brain.setConfiguration(false);
+	std::thread(checkRainStatus, brain);
 	while (count < 100){
-		std::cout << std::endl  << std::endl << "Beggining Iteration..." << count << std::endl;
+		std::cout << std::endl  << std::endl << "Beggining Iteration: " << count << std::endl;
 		brain.check();
 		count++;
-		delay(5000);
 		
 	}
 	return 0; 
