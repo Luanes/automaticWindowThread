@@ -12,9 +12,11 @@ Brain::~Brain() {}
 void Brain::checkRain(){
 	
 	rain = sensor.isRaining();
+	while(true){
 	if(rain){
 	update();
 	act();
+		}
 	sleep(60000);
 	}
 	
