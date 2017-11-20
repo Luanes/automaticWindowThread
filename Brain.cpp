@@ -4,23 +4,9 @@
 #include <thread>
 
 Brain::Brain(){
-	std::thread watchRain(checkRain);
 }
 
 Brain::~Brain() {}
-
-void Brain::checkRain(){
-	
-	rain = sensor.isRaining();
-	while(true){
-	if(rain){
-	update();
-	act();
-		}
-	sleep(60000);
-	}
-	
-}
 
 void Brain::setConfiguration(bool openW){
 
