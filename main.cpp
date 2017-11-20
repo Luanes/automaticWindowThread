@@ -15,11 +15,16 @@ $ ./janela
 #include <wiringPi.h>
 #include <iostream>
 #include <thread>
+
 void checkRainStatus(Brain brain){
 	
-	while(true){
+	int aux = 1;
+	while(aux<100){
+	if(brain.checkRain()){
 	brain.check();
 	delay(6000);
+	}
+	aux++;
 	}
 
 }
