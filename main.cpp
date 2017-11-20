@@ -33,13 +33,12 @@ int main()
 {
 	Brain brain;
 	int count = 1;
-	std::thread(checkRainStatus, brain);
+	std::thread rainChecker(checkRainStatus, brain);
+	rainChecker.detach();
 	while (count < 100){
 		std::cout << std::endl  << std::endl << "Beggining Iteration..." << count << std::endl;
 		brain.check();
 		count++;
-		
-		
 	}
 	return 0; 
 
