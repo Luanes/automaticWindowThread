@@ -14,13 +14,19 @@ $ ./janela
 #include "Brain.h"
 #include <wiringPi.h>
 #include <iostream>
+#include <thread>
 
+void checkRain(Brain brain){
+	while(true){
+	brain.check();
+	delay(5000);
+}
+}
 int main()
 {
 	Brain brain;
 	int count = 1;
-	//int tempMax, int tempMin, bool autDay, bool autNight, bool openW
-	//brain.setConfiguration(false);
+	std::thread(checkRain, brain);
 	while (count < 100){
 		std::cout << std::endl  << std::endl << "Beggining Iteration..." << count << std::endl;
 		brain.check();
